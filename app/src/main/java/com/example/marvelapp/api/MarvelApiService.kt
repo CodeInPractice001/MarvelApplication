@@ -13,8 +13,6 @@ import retrofit2.http.GET
 
 interface MarvelApiService {
     @GET(MARVEL_API_ENDPOINT)
-    suspend fun getAllLists(
-
-    ): Response<MarvelModel>
+    suspend fun getAllLists(): Response<MarvelModel>
 
 }

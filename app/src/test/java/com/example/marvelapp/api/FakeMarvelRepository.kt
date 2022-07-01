@@ -8,7 +8,7 @@ import com.example.marvelapp.utils.Response
 
 class FakeMarvelRepository {
     private val marvelDataModel =MarvelDataModel()
-    private val marvelLiveData = MutableLiveData<MarvelDataModel>(marvelDataModel)
+    private val marvelLiveData = MutableLiveData(marvelDataModel)
     private var shouldReturnNetworkError = false
 
     fun setShouldReturnNetworkError(value:Boolean){

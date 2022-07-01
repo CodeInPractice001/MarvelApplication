@@ -18,6 +18,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+    useLibrary 'android.test.mock'
 
     buildTypes {
         release {
@@ -98,5 +99,5 @@ dependencies {
 
     implementation 'com.github.bumptech.glide:glide:4.13.2'
 
-
+testImplementation 'io.mockk:mockk:1.12.2'
 }

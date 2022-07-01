@@ -18,6 +18,7 @@ import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 import org.mockito.Mock
 import org.mockito.Mockito
+import org.mockito.Mockito.mock
 import org.mockito.MockitoAnnotations
 import retrofit2.Response
 
@@ -28,9 +29,9 @@ class MainViewModelTest {
 
     private val testDispatcher = TestCoroutineDispatcher()
     lateinit var mainViewModel: MarvelViewModel
-    lateinit var mainRepository: MarvelRepositoryImp
+   lateinit var  mainRepository: MarvelRepositoryImp
 
-
+//execute the tasks synchronously(one by one)
     @get:Rule
     val instantTaskExecutionRule: InstantTaskExecutorRule = InstantTaskExecutorRule()
 
