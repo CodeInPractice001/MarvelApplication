@@ -10,3 +10,6 @@ data class Series(
     val items: List<ItemXX>,
     val returned: Int
 ):Parcelable
+{
+    constructor():this(-1,"collectionsUri", emptyList(),-1)
+}

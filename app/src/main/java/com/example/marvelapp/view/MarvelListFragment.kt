@@ -78,7 +78,7 @@ class MarvelListFragment : ViewModelFragment() {
         })
     }
 
-    fun openDetails(resultModel: ResultModel){
+    private fun openDetails(resultModel: ResultModel){
         parentFragmentManager.beginTransaction()
             .replace(R.id.List_container,MarvelDetailsFragment.newInstance(resultModel))
             .addToBackStack(null)

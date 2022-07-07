@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 
 
-class MarvelRepositoryImp @Inject constructor(
+open class MarvelRepositoryImp @Inject constructor(
     private val service: MarvelApiService
 ) {
 

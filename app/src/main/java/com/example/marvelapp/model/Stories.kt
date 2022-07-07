@@ -10,3 +10,6 @@ data class Stories(
     val items: List<ItemXXX>,
     val returned: Int
 ):Parcelable
+{
+    constructor():this(-1,"CollectionURI", emptyList(),-1)
+}

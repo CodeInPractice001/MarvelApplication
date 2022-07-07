@@ -41,7 +41,7 @@ class MarvelDetailsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentMarvelDetailsBinding.inflate(layoutInflater)
         val resultModel: ResultModel = arguments?.get("result") as ResultModel
 
@@ -52,7 +52,7 @@ class MarvelDetailsFragment : Fragment() {
         binding.tvDetailName.text = resultModel.name
         binding.tvComic.text = resultModel.comics.items[0].name
 
-        var urlText = resultModel.resourceURI+"&apikey=678c0bb6d6aea2fbde954e9c8e170586&hash=6c5502e0089e46828d91a0d16149b185"
+        val urlText = resultModel.resourceURI+"&apikey=678c0bb6d6aea2fbde954e9c8e170586&hash=6c5502e0089e46828d91a0d16149b185"
         binding.tvResourceURI.text = resultModel.resourceURI
         binding.tvResourceURI.setOnClickListener {
             val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(urlText))

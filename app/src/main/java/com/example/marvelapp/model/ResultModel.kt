@@ -16,4 +16,13 @@ data class ResultModel(
     val stories: Stories,
     val thumbnail: Thumbnail,
     val urls: List<Url>
-):Parcelable
+) : Parcelable {
+    constructor() : this(
+        Comics(), "description", Events(), -1, "modeifies", "name", "resourceId",
+        Series(), Stories
+            (), Thumbnail
+            ("extension", "path"), emptyList
+            ()
+    )
+
+}

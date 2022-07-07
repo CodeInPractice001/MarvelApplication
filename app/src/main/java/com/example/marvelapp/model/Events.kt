@@ -9,3 +9,6 @@ data class Events(
     val items: List<ItemX>,
     val returned: Int
 ):Parcelable
+{
+    constructor():this(-1,"collectionsUrl", emptyList(),-1)
+}

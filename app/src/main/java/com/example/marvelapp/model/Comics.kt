@@ -10,3 +10,6 @@ data class Comics(
     val items: List<Item>,
     val returned: Int
 ):Parcelable
+{
+    constructor():this(-1,"collections", emptyList(),-1)
+}
