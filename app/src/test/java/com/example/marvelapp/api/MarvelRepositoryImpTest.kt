@@ -1,18 +1,14 @@
 package com.example.marvelapp.api
 
 
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.example.marvelapp.getOrAwait
-import com.example.marvelapp.model.MarvelDataModel
 import com.example.marvelapp.model.MarvelModel
-import com.example.marvelapp.model.ResultModel
-import com.example.marvelapp.viewmodel.MarvelViewModel
 import junit.framework.TestCase.assertEquals
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
+import okhttp3.ResponseBody
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
@@ -35,11 +31,6 @@ class MarvelRepositoryImpTest {
     var initRule: MockitoRule = MockitoJUnit.rule()
 
 
-
-
-    private val dispatcher = TestCoroutineDispatcher()
-
-
     @Mock
     lateinit var apiService: MarvelApiService
     //private val repositoryImp: MarvelRepositoryImp = Mockito.mock(MarvelRepositoryImp::class.java)
@@ -51,7 +42,7 @@ class MarvelRepositoryImpTest {
 
     @Before
     fun setUp() {
-        Dispatchers.setMain(dispatcher)
+        Dispatchers.setMain(Dispatchers.Unconfined)
         MockitoAnnotations.openMocks(this)
 
         repositoryImp = MarvelRepositoryImp(apiService)
@@ -66,6 +57,16 @@ class MarvelRepositoryImpTest {
             Mockito.`when`(apiService.getAllLists()).thenReturn(Response.success(MarvelModel()))
            val response = apiService.getAllLists()
             assertEquals(MarvelModel(),response.body())
+        }
+    }
+
+    @Test
+    fun getErrorIfListDoesNotGetUploaded(){
+        runBlocking {
+            Mockito.`when`(apiService.getAllLists()).thenReturn(Response.error(404,null))
+        //    val response = apiService.getAllLists()
+            val response = listOf<MarvelModel>()
+            assertEquals("",response)
         }
     }
     @After

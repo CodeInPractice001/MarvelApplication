@@ -20,9 +20,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
-        val fragment = MarvelListFragment()
-        val fragmentManager: FragmentManager = supportFragmentManager
-        fragmentManager.beginTransaction().replace(R.id.List_container, fragment).commit()
+       // val fragment = MarvelListFragment()
+//        val fragmentManager: FragmentManager = supportFragmentManager
+//        fragmentManager.beginTransaction().replace(R.id.List_container, fragment).commit()
 
     }
 
